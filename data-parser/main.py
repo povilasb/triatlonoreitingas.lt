@@ -13,7 +13,7 @@ def main():
                         sheet)
     stats_rows = map(lambda row: {'name': row[cols[0]], 'score': row[cols[1]]},
                      stats_rows)
-    write_json_to('stats.json', list(stats_rows))
+    write_json_to('../data/stats.json', list(stats_rows))
 
 
 def write_json_to(fname: str, data: dict) -> None:
