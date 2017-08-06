@@ -4,6 +4,22 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+var statsUrl = 'https://raw.githubusercontent.com/povilasb/triatlonoreitingas.lt/master/data/stats.json';
+
+/**
+ * @param data array json encoded ratings.
+ */
+function renderTop10(data) {
+    var top10Table = $('#top10');
+    var top10 = data.slice(0, 10);
+    for (var i = 0; i < top10.length; ++i) {
+        var row = '<tr><td>' + (i + 1).toString() + '</td>' +
+            '<td>' + top10[i].name + '</td>' +
+            '<td>' + top10[i].score + '</td></tr>';
+        top10Table.append(row);
+    }
+}
+
 (function($) {
 
 	skel.breakpoints({
@@ -23,6 +39,8 @@
 
 			$window.on('load', function() {
 				$body.removeClass('is-loading');
+
+                $.getJSON(statsUrl, renderTop10);
 			});
 
 		// Fix: Placeholder polyfill.
