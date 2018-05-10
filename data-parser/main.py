@@ -7,7 +7,7 @@ def main():
     sheet = data['Bendra įskaita']
     headers_row = 2
     headers = sheet[headers_row]
-    cols = [headers.index(h) for h in ['Dalyvis', '5 geriausių rezultatų suma']]
+    cols = [headers.index(h) for h in ['Dalyvis', 'Visų taškų suma']]
 
     stats_rows = filter(lambda row: len(row) > 1 and type(row[0]) is int,
                         sheet)
